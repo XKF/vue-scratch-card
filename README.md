@@ -17,17 +17,17 @@
 `ScratchCard`组件可添加props属性后直接插入使用，可自己在组件上添加自定义类名覆盖样式
 ```js
 
-import ScratchCard from '@flamingo/vue-scratch-card'
+import ScratchCard from '@kafan/vue-scratch-card'
 
 // 全局注册
 Vue.use(ScratchCard)
 // 使用
 <template>
-    <fgo-scratchcard class="diyClassName" @scratchStart="start" @scratchEnd="end">
+    <v-scratchcard class="diyClassName" @scratchStart="start" @scratchEnd="end">
         <!-- <template v-slot:prize>
             <p style="position:absolute;width:100%;height:100%;paddingBottom:10px;color:#333">可选插槽插入自定义内容</p>
         </template> -->
-    </fgo-scratchcard>
+    </v-scratchcard>
 </template> 
 
 <script>
@@ -95,7 +95,7 @@ export default {
 
 ```js
 
-import ScratchCard from '@flamingo/vue-scratch-card'
+import ScratchCard from '@kafan/vue-scratch-card'
 
 ScratchCard({
     canvasParentId:'ScratchCard_1',

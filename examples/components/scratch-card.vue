@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="line">
-            <fgo-scratchcard @scratchAll="fn" :prizeName="abc">
+            <v-scratchcard @scratchAll="fn" :prizeName="abc">
                 <!-- <template v-slot:prize>
                     <p style="position:absolute;width:100%;height:100%;paddingBottom:10px;color:#333">{{abc}}</p>
                 </template> -->
-            </fgo-scratchcard>
+            </v-scratchcard>
         </div>
         <div class="line">
             <p class='title' @click="test()">函数调用</p>

@@ -5,7 +5,7 @@ import './style/index.scss';
 var ScratchCard = registerScratchCard
 
 ScratchCard.install = function(Vue) {
-    Vue.component('fgo-scratchcard', ScratchCardComponent)
+    Vue.component('v-scratchcard', ScratchCardComponent)
 }
 
 ScratchCard.Component = ScratchCardComponent
