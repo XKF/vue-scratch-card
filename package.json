@@ -1,0 +1,51 @@
+{
+  "name": "@flamingo/vue-scratch-card",
+  "version": "1.1.2",
+  "description": "刮刮卡组件",
+  "main": "lib/index.umd.min.js",
+  "keyword": "scratch-card scratchCard",
+  "author": "KaFan",
+  "private": false,
+  "license": "ISC",
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "package": "vue-cli-service build --target lib --name index --dest lib packages/index.js"
+  },
+  "dependencies": {
+    "autoprefixer": "^8.6.5",
+    "core-js": "^3.8.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.1.1",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
