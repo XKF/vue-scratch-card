@@ -102,6 +102,7 @@ function scratchCard({
 			slotScoped,
 			init(){
 				if(this.ScratchAll) this.ScratchAll = false;
+				this.hadScratched = false;
 				this.initCanvas();
 			},
 			reset({slotScoped = defaultValue.slotscoped, prizeName = defaultValue.prizename} = {}){

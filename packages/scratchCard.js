@@ -79,7 +79,8 @@ export default {
             _canvas: "", //画布
             ctx: "", //画笔
             isdown: false, //标志用户是否按下鼠标或开始触摸
-            ScratchAll: false
+            ScratchAll: false,
+            hadScratched: false //是否开刮
         };
     },
     methods: {
@@ -120,8 +121,9 @@ export default {
         touchstart(e) {
             e.preventDefault();
             this.isdown = true;
+            this.hadScratched = true;
             this.$emit('scratchStart',this.reset);
-            this.onScratchStart && typeof this.onScratchStart === 'function' && this.onScratchStart();
+            this.onScratchStart && typeof this.onScratchStart === 'function' && this.onScratchStart(this.reset);
         },
         // 操作刮卡
         touchend(e) {
@@ -132,15 +134,17 @@ export default {
             for (let i = 3; i < a.data.length; i += 4) {
                 if (a.data[i] == 0) j++;
             }
-            //当被刮开的区域等于一半时，则可以开始处理结果
-            if (j >= a.data.length / (4 * this.scope)) {
-                this.ScratchAll = true;
-                this.$emit('scratchAll',this.reset);
-                this.onScratchAll && typeof this.onScratchAll === 'function' && this.onScratchAll();
-            }
+
             this.isdown = false;
             this.$emit('scratchEnd',this.reset);
-            this.onScratchEnd && typeof this.onScratchEnd === 'function' && this.onScratchEnd();
+            this.onScratchEnd && typeof this.onScratchEnd === 'function' && this.onScratchEnd(this.reset);
+
+            //当被刮开的区域等于一半时，则可以开始处理结果
+            if (this.hadScratched && j >= a.data.length / (4 * this.scope)) {
+                this.ScratchAll = true;
+                this.$emit('scratchAll',this.reset);
+                this.onScratchAll && typeof this.onScratchAll === 'function' && this.onScratchAll(this.reset);
+            }
         },
         touchmove(e) {
             e.preventDefault();
@@ -173,6 +177,7 @@ export default {
         },
         reset(){
             if(this.ScratchAll) this.ScratchAll = false;
+            this.hadScratched = false;
 			this.initCanvas();
         }
     },
